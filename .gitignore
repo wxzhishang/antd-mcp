@@ -1,0 +1,45 @@
+# 依赖目录
+node_modules/
+ant-design/
+
+# 构建输出
+dist/
+build/
+
+# 环境变量文件
+.env
+.env.local
+.env.production
+.env.development
+
+# 日志文件
+*.log
+logs/
+
+# 缓存目录
+.cache/
+.tmp/
+
+# IDE和编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# npm和yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 临时文件
+*.tmp
+*.temp 
