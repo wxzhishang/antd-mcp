@@ -1,6 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { changeAntdVersion } from "../utils/index.js";
+import { getComponentBestPractices } from "../utils/bestPractice/index.js";
 
 /** 获取某个组件的最佳实践 */
 const registryTool = (server: McpServer) => {
@@ -12,11 +12,15 @@ const registryTool = (server: McpServer) => {
 2. 其他工具需要获取某个组件的最佳实践时`,
     { componentName: z.string() },
     async ({ componentName }) => {
+      const bestPractices = await getComponentBestPractices(componentName);
+      
       return {
         content: [
           {
             type: "text",
-            text: `暂未开发`,
+            text: `${bestPractices.componentName} 组件的最佳实践：
+
+${bestPractices.combined}`,
           },
         ],
       };

@@ -12,6 +12,8 @@
     "extract": "tsx cli.ts extract",
     "inspector": "npm run build & npx @modelcontextprotocol/inspector node dist/cli.js",
     "generate-component-changelog": "tsx src/scripts/generate.component-changelog.ts",
+    "crawl-practices": "tsx src/scripts/crawl-best-practices.ts",
+    "crawl-practices:component": "tsx src/scripts/crawl-best-practices.ts",
     "prepublishOnly": "npm run build"
   },
   "files": [

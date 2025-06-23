@@ -16,6 +16,11 @@ export const EXTRACTED_COMPONENTS_DATA_PATH = join(EXTRACTED_DATA_DIR, "componen
 /** 提取的组件更新日志路径 */
 export const EXTRACTED_COMPONENTS_DATA_CHANGELOG_PATH = join(EXTRACTED_DATA_DIR,"components-changelog.json");
 
+/** 最佳实践数据存储目录 */
+export const BEST_PRACTICES_DIR = resolve(ROOT_DIR, "practice");
+/** 最佳实践组件数据目录 */
+export const BEST_PRACTICES_COMPONENTS_PATH = join(BEST_PRACTICES_DIR, "components");
+
 /** README.md 目录路径 */
 export const README_PATH = join(ROOT_DIR, "README.md");
 
@@ -29,6 +34,10 @@ export const DEFAULT_ANT_DESIGN_EXTRACT_PATH = "./ant-design";
 export const DOC_FILE_NAME = "docs.md";
 /** 组件示例文件名(本地提取文档) */
 export const EXAMPLE_FILE_NAME = "examples.md";
+/** 预设最佳实践文件名 */
+export const PRESET_PRACTICE_FILE_NAME = "preset.md";
+/** 爬取最佳实践文件名 */
+export const CRAWLED_PRACTICE_FILE_NAME = "crawled.md";
 
 /** antd仓库地址 */
 export const ANT_DESIGN_REPO_URL = "https://github.com/ant-design/ant-design";
