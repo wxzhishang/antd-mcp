@@ -66,6 +66,18 @@ npm run extract
 npm run generate-component-changelog
 ```
 
+### 爬取最佳实践
+
+此功能还待完善，写得脚本太烂了，目前爬取的数据较混乱，如果有大佬有好的思路欢迎PR
+
+```bash
+# 爬取全部组件的最佳实践（需要提前提取Ant Design数据）
+npm run crawl-practices
+
+# 爬取指定组件的最佳实践
+npm run crawl-practices Button ...
+```
+
 ### 在 MCP 客户端中使用
 
 将此服务器添加到您的 MCP 客户端配置中，然后可以使用以下功能：
