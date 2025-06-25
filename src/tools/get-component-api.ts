@@ -1,6 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { getComponentDocumentation } from "../utils/index.js";
+import { getComponentApi } from "../utils/index.js";
 
 /** 获取组件api说明 */
 const registryTool = (server: McpServer) => {
@@ -13,14 +13,13 @@ const registryTool = (server: McpServer) => {
 3. 其他工具需要查看对应API，需要获取API的ts类型以及联合类型值时`,
     { componentName: z.string(), apiName: z.array(z.string()) },
     async ({ componentName, apiName }) => {
+      const result = await getComponentApi(componentName, apiName);
       return {
         content: [
           {
             type: "text",
-            text: `${componentName} 组件的API有：
-${apiName}
-${apiName.map(item => `- ${item}`).join("\n")}的对应属性以及联合属性值为：
-`,
+            text: `${apiName.length > 0 ? apiName.join(",") : "全部"}的API属性以及联合属性值为：
+${result}`,
           },
         ],
       };

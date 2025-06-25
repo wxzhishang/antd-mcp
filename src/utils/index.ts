@@ -303,3 +303,71 @@ export const changeAntdVersion = async(version: string) => {
     return `切换到 Ant Design ${version} 版本失败: 111111 ${(error as Error).message}`;
   }
 }
+
+export const getComponentApi = async (componentName: string, apiName?: string[]) => {
+  try {
+    const component = await findComponentByName(componentName);
+    if (!component) {
+      return `组件 ${componentName} 不存在`;
+    }
+    
+    // 获取组件文档
+    const documentation = await getComponentDocumentation([componentName]);
+    if (!documentation || typeof documentation !== 'string') {
+      return `无法获取组件 ${componentName} 的文档`;
+    }
+    
+    // 提取 API 部分
+    const apiSection = extractSection(documentation, "## API");
+    if (!apiSection) {
+      return `组件 ${componentName} 没有 API 文档`;
+    }
+    
+    // 如果 apiName 为空，返回完整的 API 部分
+    if (!apiName || apiName.length === 0) {
+      return apiSection;
+    }
+    
+    // 解析 API 表格，提取指定的 API 属性
+    const lines = apiSection.split('\n');
+    const apiResults: string[] = [];
+    
+    for (const targetApi of apiName) {
+      let found = false;
+      
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        
+        // 检查是否是表格行且包含目标 API
+        if (line.includes('|') && line.includes(targetApi)) {
+          const cells = line.split('|').map(cell => cell.trim());
+          
+          // 确保是有效的表格行，且第一列匹配 API 名称
+          if (cells.length >= 5 && cells[1] === targetApi) {
+            // 构建详细的 API 信息
+            const apiInfo = [
+              `### ${targetApi}`,
+              `**说明**: ${cells[2]}`,
+              `**类型**: ${cells[3]}`,
+              `**默认值**: ${cells[4]}`,
+              cells[5] ? `**版本**: ${cells[5]}` : ''
+            ].filter(Boolean).join('\n');
+            
+            apiResults.push(apiInfo);
+            found = true;
+            break;
+          }
+        }
+      }
+      
+      if (!found) {
+        apiResults.push(`未找到 API 属性: ${targetApi}`);
+      }
+    }
+    
+    return apiResults.length > 0 ? apiResults.join('\n\n') : `未找到指定的 API 属性: ${apiName.join(', ')}`;
+  } catch (error) {
+    console.error(`获取组件 ${componentName} API 错误: ${(error as Error).message}`);
+    return `获取组件 ${componentName} API 错误: ${(error as Error).message}`;
+  }
+}
