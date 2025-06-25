@@ -85,7 +85,7 @@ const miscKeys = [
   '🇦🇿',
 ];
 
-(() => {
+export function generateComponentChangelog() {
   const missingChangelog: string[] = [];
   const miscChangelog: string[] = [];
 
@@ -244,4 +244,4 @@ const miscKeys = [
     console.log(miscKeys.join(' , '), '\n');
     throw new Error(`Component changelog miss match!`);
   }
-})();
+}

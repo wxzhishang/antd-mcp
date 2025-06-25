@@ -300,7 +300,7 @@ export const changeAntdVersion = async(version: string) => {
     
   } catch (error) {
     console.error(`❌ 切换版本失败:`, (error as Error).message);
-    return `切换到 Ant Design ${version} 版本失败: 111111 ${(error as Error).message}`;
+    return `切换到 Ant Design ${version} 版本失败: ${(error as Error).message}`;
   }
 }
 

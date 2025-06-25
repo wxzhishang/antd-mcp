@@ -62,7 +62,7 @@ git clone https://github.com/ant-design/ant-design
 # 执行脚本
 npm run extract
 
-# 可能会出现更新日志无法正常获取的现象，可以执行以下脚本
+# 可能会出现更新日志无法正常获取的现象，可以执行以下脚本后重新执行extract脚本
 npm run generate-component-changelog
 ```
 

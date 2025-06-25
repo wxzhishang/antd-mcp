@@ -11,7 +11,7 @@
     "pretest": "tsup",
     "extract": "tsx cli.ts extract",
     "inspector": "npm run build & npx @modelcontextprotocol/inspector node dist/cli.js",
-    "generate-component-changelog": "tsx src/scripts/generate.component-changelog.ts",
+    "generate-component-changelog": "tsx cli.ts generate-component-changelog",
     "crawl-practices": "tsx cli.ts crawl-practices",
     "prepublishOnly": "npm run build"
   },
