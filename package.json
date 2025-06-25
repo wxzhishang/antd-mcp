@@ -1,6 +1,6 @@
 {
-  "name": "antd-mcp-server",
-  "version": "1.0.0",
+  "name": "antd-mcp",
+  "version": "1.0.3",
   "description": "MCP Server for Ant Design component",
   "type": "module",
   "bin": "dist/cli.js",
@@ -17,9 +17,9 @@
   },
   "files": [
     "dist",
-    "componentData",
-    "README.md",
-    "README.zh-CN.md"
+    "docs",
+    "practice",
+    "README.md"
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "latest",
@@ -43,6 +43,9 @@
     "antd",
     "ui-components"
   ],
-  "author": "luxiaolong",
-  "license": "MIT"
+  "author": "kaka.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wxzhishang/antd-mcp"
+  }
 } 

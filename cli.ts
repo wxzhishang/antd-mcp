@@ -1,4 +1,4 @@
-#!/user/bin/env node
+#!/usr/bin/env node
 import { resolve } from "path";
 import server from "./src/index.js";
 import { DEFAULT_ANT_DESIGN_EXTRACT_PATH } from "./src/path.js";
