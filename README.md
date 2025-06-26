@@ -39,12 +39,25 @@ npm run build
 以cursor为例，可以在Cursor Settings中的Tools中配置：
 
 ```json
+// 从本地导入（推荐，后面也许就不推荐了）
 {
   "mcpServers": {
     "antd-components-local": {
       "command": "node",
       "args": [
-        "<你拉取仓库的地址>/antd-MCP/dist/cli.js"
+        "<repository-url>/antd-MCP/dist/cli.js"
+      ]
+    }
+  }
+}
+
+// 从npm导入
+{
+  "mcpServers": {
+    "antd-components-local": {
+      "command": "npx",
+      "args": [
+        "antd-mcp"
       ]
     }
   }
@@ -62,7 +75,7 @@ git clone https://github.com/ant-design/ant-design
 # 执行脚本
 npm run extract
 
-# 可能会出现更新日志无法正常获取的现象，可以执行以下脚本后重新执行extract脚本
+# 可能会出现更新日志无法正常获取的现象(如果docs文件夹下没有components-changelog.json文件)，可以执行以下脚本后重新执行extract脚本
 npm run generate-component-changelog
 ```
 
